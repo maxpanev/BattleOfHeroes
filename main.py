@@ -18,6 +18,7 @@ class Hero:
 class Warrior(Hero):
     def __init__(self, name):
         super().__init__(name)
+        self.health += 20
         self.rage_active = False
 
     def attack(self, other):
@@ -37,7 +38,7 @@ class Warrior(Hero):
 
 class Mage(Hero):
     def attack(self, other):
-        damage = random.randint(5, self.attack_power - 5)
+        damage = random.randint(10, self.attack_power + 10)
         other.health -= damage
         print(f"{self.name} выпускает огненную стрелу в {other.name}! Здоровье {other.name}: {other.health}")
 
@@ -99,8 +100,12 @@ class Game:
 
 def choose_class():
     print("Выберите класс персонажа:")
-    print("1. Воин: Мощная атака и способность 'ярость', увеличивающая урон от следующей атаки.")
-    print("2. Маг: Сбалансированная атака и способность 'лечение', восстанавливающая здоровье.")
+    #print("1. Воин: Большое здоровье и способность 'ярость', увеличивающая урон от следующей атаки.")
+    #print("2. Маг: Мощная магия и способность 'лечение', восстанавливающая здоровье.")
+    print("1. Воин:\nЗдоровье - 120 ед\nАтака - 15-25 ед \nСпособность -'Ярость' - урон от следующей атаки увеличен")
+    print()
+    print("2. Маг:\nЗдоровье - 100 ед\nОгненная стрела - 10-30 ед\nСпособность - 'лечение' - восстанавливает здоровье")
+    print()
     choice = input("Введите номер выбранного класса (1 или 2): ")
     if choice == "1":
         return "воин"
